@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+<title>Gerenciador de Domínios - DDNS	</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> 
+<meta name="description" content="A melhor opção para DNS dinâmico. E com suporte no Brasil.">
+<meta name="keywords" content=""> 
+<meta name="robots" content="index,follow">
+<meta name="author" content="Claudio Gavinho, www.claudiogavinho.com.br">
+<meta name="theme-color" content="#35B0E5">
+
+<link rel="icon" type="image/png" href="tpl/img/favicons/favicon-16x16.png" sizes="16x16">
+<meta name="msapplication-TileColor" content="#274d65" />
+
+<link rel="stylesheet" type="text/css" href="tpl/css/ddns2016.css" media="all"/>
+<link rel="stylesheet" type="text/css" href="tpl/css/account2016.css" media="all" />
+<link rel="stylesheet" type="text/css" href="tpl/css/medias.css" media="all" />
+<!-- Insert this line above script imports  -->
+<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+<!-- normal script imports etc  -->
+<script src="tpl/js/jquery-2.2.4.min.js"></script>    
+
+<!-- Insert this line after script imports -->
+<script>if (window.module) module = window.module;</script>
+
+<body class="list-domains cbp-spmenu-push">
+<header>
+	<a href="../." class="logo left"></a>
+</header>
+<section class="edit" style="margin-top: 30px">
+	<h1>Adicionar subdomínio</h1>
+	<br>
+	<form>
+		<table class="table_mvcform" style="width: auto;">
+			<tbody>
+				<!-- <tr> -->
+					<!-- <td colspan="2"><h3>Registrando novo subdomínio</h3></td> -->
+				<!-- </tr> -->
+				<tr>
+					<th><label for="dom_name">Subdomínio: </label>&nbsp;</th>
+					<td><input type="text" value="" name="dom_name" id="dom_name"></td>
+				</tr>
+				<tr>
+					<th><label for="dom_password">Senha: </label>&nbsp;</th>
+					<td><input type="text" value="" name="dom_password" id="dom_password"></td>
+				</tr>
+				<tr>
+					<th>&nbsp;</th>
+					<td>
+						<input type="button" value="Adicionar subdomínio" name="create" id="create" class="btn btn-verde btn-big">
+						<input type="button" value="Voltar" name="back" id="back" class="btn btn-azul">
+					</td>
+				</tr>
+			</tbody>
+		</table>	
+	</form>
+</section>
+<script>
+	$(document).ready(function() {
+	
+		const querystring = require('querystring');
+
+		if (window.location.search.indexOf('domain')) {
+			var qs = querystring.parse(window.location.search.substring(1));
+			if (qs) {
+				domain = JSON.parse(localStorage.getItem(qs.domain));
+				$('#dom_name').val(qs.domain);
+				$('#dom_password').val(domain.password);
+			}
+		}
+
+		$('#back').on('click', () => {
+			history.back('-1');
+		});
+		
+		$('#create').on('click', () => {
+			domain = $('#dom_name').val();
+			data = {'password': $('#dom_password').val(), 'last_ip': null, 'last_update': null };
+			
+			localStorage.setItem(domain, JSON.stringify(data))
+			window.location.href = 'index.html';
+		});
+	});
+	
+	
+ </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> 
+<title>Gerenciador de Domínios - DDNS	</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> 
+<meta name="description" content="A melhor opção para DNS dinâmico. E com suporte no Brasil.">
+<meta name="keywords" content=""> 
+<meta name="robots" content="index,follow">
+<meta name="author" content="Claudio Gavinho, www.claudiogavinho.com.br">
+<meta name="theme-color" content="#35B0E5">
+
+<link rel="icon" type="image/png" href="tpl/img/favicons/favicon-16x16.png" sizes="16x16">
+<meta name="msapplication-TileColor" content="#274d65" />
+
+<link rel="stylesheet" type="text/css" href="tpl/css/ddns2016.css" media="all"/>
+<link rel="stylesheet" type="text/css" href="tpl/css/account2016.css" media="all" />
+<link rel="stylesheet" type="text/css" href="tpl/css/medias.css" media="all" />
+<!-- Insert this line above script imports  -->
+<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+<!-- normal script imports etc  -->
+<script src="tpl/js/jquery-2.2.4.min.js"></script>    
+
+<!-- Insert this line after script imports -->
+<script>if (window.module) module = window.module;</script>
+
+<body class="list-domains">
+<header>
+	<a href="../." class="logo left"></a>
+</header>
+<section class="account">
+	<h1>Gerenciar domínios</h1>
+	<br>
+	<div style="overflow: auto;">
+		<table class="subdominios">
+			<tbody>
+				<tr>
+					<th style="width: 300px">Subdomínio</th>
+					<th>Último IP</th>
+					<th>Última atualização</th>
+					<th>Excluir</th>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="table-footer">
+		<a href="new_domain.html" class="btn btn-purple">Adicionar</a>
+	</div>
+</section>
+<script>
+    // You can also require other files to run in this process
+    require('./app.js')
+	
+	var updater = new (require('./DDNSUpdater.js'));
+	updater.startScheduler();
+	
+	updater.on('subdomain_updated', (domain) => {
+		console.log(domain)
+	});
+ </script>
+</body>
+</html>

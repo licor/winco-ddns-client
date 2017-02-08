@@ -1,0 +1,248 @@
+.MenuMobile{display: none;}
+
+/* ==== Hamburguer button ==== */
+#showRightPush{
+	width: 35px;
+	height: 35px;
+	display: block;
+	float: right;
+	margin: 24px 30px 0 0;
+	background:  url(../img/SVG/icon-hamburguer.svg) center no-repeat;
+	background-size: contain;
+	cursor: pointer;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.painel #showRightPush{
+	height: 35px;
+	width: 35px;
+	margin: 10px 20px 0 0;
+	background:  url(../img/SVG/icon-mobile-fechar.svg) center no-repeat;
+	background-size: contain;
+}
+
+.bg-close{
+	width: 100%;
+	height: 54px;
+	position: relative;
+	border-bottom: 1px solid rgba(0,0,0,.12);
+	background-color: #35B0E5;
+}
+
+.ScrollMenu{
+	width: 85%;
+	height: 100%;
+	background-color:#fff;
+	-webkit-box-shadow: 4px 3px 5px rgba(0,0,0,.2);
+	-moz-box-shadow: 4px 3px 5px rgba(0,0,0,.2);
+	box-shadow: 4px 3px 5px rgba(0,0,0,.2);
+}
+
+/* General styles for all menus */
+.cbp-spmenu {position: fixed;}
+.cbp-spmenu a {display: block;}
+
+/* Orientation */
+.cbp-spmenu-vertical {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	margin:0;
+	z-index: 1000;
+}
+
+.cbp-spmenu-vertical .painel{
+	width: 100%;
+	height: 100%;
+	overflow:auto;
+	background-color:rgba(0,0,0,.03);
+}
+
+.painel ul{
+	width: 100%;
+	height: auto;
+	list-style:none;
+	overflow: auto;
+	padding: 10px 0 20px 0;
+	background: rgba(255,255,255,1);
+}
+
+.painel li{
+	display: block;
+	width: 100%;
+}
+
+.painel li{
+	display: block;
+	width: 100%;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 300;
+	color: #757575;
+	margin:0;
+	cursor: auto;
+}
+
+
+.painel ul a{
+	width: 100%;
+	height: auto;
+	display: block;
+	margin:0;
+	padding: 10px 0 10px 30px;
+	font-size: .95em;
+	font-weight: 700;
+	letter-spacing: 1px;
+	color: #0071A2 !important;
+	text-align: left;
+}
+
+.painel ul a.text-green{color: #01C150 !important;}
+
+.painel li:hover > a { 
+	text-decoration: none;
+	background-color: rgba(153,153,153,.07);
+	color: rgba(0,0,0,.7) !important;
+}
+
+.painel ul a.menu-seta{
+	float: none;
+	background:none;
+	background-color: #f8f8f8;
+	color: rgba(0,0,0,.7) !important;
+	cursor: pointer !important;
+	padding: 10px 0 10px 20px;
+}
+
+.selected {
+	color: #03A9F4 !important;
+}
+
+.separador{
+	width: 100%;
+	height: 1px;
+	background-color:rgba(0,0,0,.12);
+}
+
+
+.cbp-spmenu-vertical a:hover {background-color:rgba(0,0,0,.02);}
+
+/* Menu position */
+.cbp-spmenu-right {
+	left: -105%;
+	background-color: rgba(0,0,0,.5);
+}
+
+.cbp-spmenu-right.cbp-spmenu-open {left: 0px;}
+
+/* Push classes applied to the body */
+.cbp-spmenu-push {
+	overflow-x: hidden;
+	position: relative;
+	right: 0;
+}
+
+.cbp-spmenu-push-toright {right: 100%;}
+
+/* Transitions */
+.cbp-spmenu,
+.cbp-spmenu-push {
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+/* FIM MENU MOBILE */
+
+/*  1020px  */
+@media screen and (max-width:63.75em) {
+nav.right{display: none;}
+.header, section{width: 100%;}
+header{
+	width: 100%; 
+	position: fixed; 
+	top:0; 
+	left:0; 
+	z-index: 500;
+	-webkit-box-shadow: 0 0 15px rgba(0,0,0,.4); 
+	-moz-box-shadow: 0 0 15px rgba(0,0,0,.4); 
+	box-shadow: 0 0 15px rgba(0,0,0,.4);
+}
+.MenuMobile{display: block;}
+.ScrollMenu{width: 300px;}
+}
+
+/*  1000px  */
+@media screen and (max-width:62.5em) {
+
+.header, section .footer-product{width: 100%; min-width: 100%; max-width: 100%;}
+
+
+footer{height: auto;}
+.footer-product article{display: none;}
+.footer-product article:last-child{
+	display: block;
+	width: 100%;
+	height: 430px;
+	padding:0;
+	float: right;
+	background-color: rgba(0,0,0,.05);'
+	overflow: hidden;
+}
+
+}
+
+/*  640px */
+@media screen and (max-width:41em){
+
+section{padding: 20px 0;}
+
+input{width: 180px !important;}
+textarea{width: 90% !important;}
+input[name=ddd]{width: 20px !important;}
+input[name=tel]{width: 130px !important;}
+
+form .button {
+	width: 100px !important;
+	color: #fff;
+	background-color: #005a93;
+	font-size: 1.2rem !important;
+	padding:4px 30px;
+	margin: 30px auto 0 auto;
+	border: 1px solid #005a93;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+table.table-denuncia{margin: 30px 0 0 30px !important;}
+
+table.table_mvcform{width:80%; margin: 0 auto !important;}
+
+.busca{padding: 15px 0 0 0;}
+
+.btn{width: 100%; text-align: center; margin: 15px 0 0 10px; padding: 15px 20px;}
+
+.account-header{padding-left: 0;}
+ul.subdominios{width: 100%;}
+
+
+
+footer{height: 450px;}
+
+}
+
+/*  500px */
+@media screen and (max-width:31.25em){
+	
+}
+
+/*  400px */
+@media screen and (max-width:25em){
+	
+}

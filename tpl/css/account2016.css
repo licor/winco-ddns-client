@@ -1,0 +1,248 @@
+.user-profile{
+	width: 50px;
+	height: 50px;
+	float: right;
+	background: url(../img/SVG/icon-user.svg) center left no-repeat;
+	background-size: contain;
+	padding: 0 20px 0 55px;
+	margin: 20px 30px 0 0;
+}
+
+
+table.subdominios {
+	width: 100%;
+	background: #fafafa;
+	border-bottom: 1px solid #ccc;
+}
+
+table.subdominios td:first-child{width: 100px;}
+
+th{
+	padding: 12px;
+	font-size: 1rem;
+	background-color: #1699cf;
+	font-weight: 400;
+	color: #fff;
+	text-align: center;
+	letter-spacing: 1px;
+}
+
+.alert{color: #DD2C00;}
+
+section.login, section.edit{
+	margin: 80px 0 -100px 0;
+	padding: 100px 30px 200px 30px;
+	background: #fafafa;
+}
+
+section.login form{
+	width: 600px;
+	margin: 0 auto;
+	padding: 30px 40px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+}
+
+section.edit form{
+	display: table;
+	width: auto;
+	margin: 0 auto;
+	padding: 30px 40px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+}
+
+
+td, td span{
+	font-size: .9rem;
+	padding: 5px 10px;
+	text-align: center !important;
+}
+
+section.login  .table_mvcform{margin: 0 auto;}
+
+/* ===== TABLE_FORM ===== */
+
+.table_mvcform th{background-color: #fff;}
+
+.table_mvcform td{text-align: left !important;}
+/*.table_mvcform tr:first-child td{text-align: center !important;}*/
+
+section.account{
+	margin: 80px 0 -100px 0;
+	padding: 20px 30px 100px 30px;
+	background: #fafafa;
+}
+
+.account-header{
+	padding: 30px 30px 0 30px;
+	margin: 0 0 -30px 0;
+}
+
+.account-header p, .account-header p strong{
+	font-size: 1.2rem;
+}
+
+.account-header p strong{color: #274E66;}
+
+.account-h2{
+	color: #369;
+	text-align: center;
+	font-size: 1.2rem;
+	padding: 80px 0 0 0;
+	font-weight: bold;
+	clear: both;
+}
+
+.account-h2 span{
+	color: #35B0E5;
+	font-size: 1.25rem;
+}
+
+table.subdominios td:last-child {width: 80px;}
+
+table.subdominios td:nth-child(2),
+table.subdominios td:nth-child(2),
+table.subdominios td:nth-child(2){
+	text-align: left !important; 
+	min-width: 140px; 
+} 
+
+td h1{
+	background-color: #1784cd;
+	color: #fff;
+	padding: 8px 0;
+	font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+}
+
+td h3{
+	background-color: #1784cd;
+	color: #fff;
+	padding: 8px 10px;
+}
+
+td a{
+	font-size: .9rem;
+	color: #1784cd;
+}
+
+a{
+	color: #1784cd;
+}
+
+td a:hover, a:hover{text-decoration: underline;}
+
+td:first-child a:hover{text-decoration: none;}
+
+.btn-trash {
+	background: url('../../tpl/img/icon-trash.png') no-repeat center center;
+	color: transparent;
+	display: block;
+	
+	
+}
+
+.table-footer{
+	height: 60px;
+}
+
+.table-footer p{
+	width: auto;
+	float: left;
+	padding: 0 0 0 10px;
+	margin-top: 15px;
+}
+
+.table-footer .btn{float: right;}
+
+.btn{
+	width: auto;
+	display: inline-block;
+	padding: 5px 30px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+	color: #fff;
+	cursor: pointer;
+}
+
+.btn:hover{text-decoration: none;}
+
+.btn-verde, .btn-laranja, .btn-purple{margin: 15px 30px 0 10px;}
+
+.btn-verde {background: #5cbe47;}
+.btn-verde:hover {background:#599d44;}
+
+.btn-purple {background: #7E57C2;}
+.btn-purple:hover{background:#5E35B1;}
+
+.btn-laranja {background: #f17903;border: 1px solid #f17903;}
+.btn-laranja:hover{background:#ff6300;}
+
+.btn-azul {background: #1784CD;border: 1px solid #1784CD;}
+.btn-azul:hover{background:#14669d;}
+
+form > table > td{text-align: left;}
+
+ul.subdominios{
+	width: 70%;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: #f5f5f5;
+	border: 1px solid #ccc;
+}
+
+ul.subdominios li{
+	padding: 10px 0;
+	list-style-type: none;
+}
+
+.warnings{
+	width: 70%;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: #f5f5f5;
+	border: 2px solid #F17903;
+	color: #F17903;
+}
+
+
+form input, form select, form textarea, form.comprar input {
+	background: #fff;
+	border: 1px solid #ccc;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	border-radius: 3px;
+	outline: none;
+	color: #0277BD;
+  	font-size: 1rem;
+ 	 margin: 5px 0;
+ 	 padding: 5px 10px;
+ 	 -webkit-box-shadow: none;
+ 	 -moz-box-shadow: none;
+ 	 box-shadow: none;
+  	-webkit-box-sizing: content-box;
+  	-moz-box-sizing: content-box;
+ 	box-sizing: content-box;
+  	-webkit-transition: 0.3s;
+  	-moz-transition: 0.3s;
+  	-o-transition: 0.3s;
+  	-ms-transition: 0.3s;
+  	transition: 0.3s;
+}
+
+input[type=text]:focus,
+input[type=email]:focus,
+textarea:focus {
+  border: 1px solid #5EA9DD;
+}
+
+.subtitle, label{
+	color: #368;
+	font-weight: bold;
+	font-size: .9rem;
+	float: left;
+}
