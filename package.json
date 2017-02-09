@@ -2,7 +2,11 @@
   "name": "winco-ddns-client",
   "version": "4.1.0",
   "main": "main.js",
+  "description": "Cliente de DDNS Winco",
   "dependencies": {
     "dateformat": "^2.0.0"
+  },
+  "devDependencies": {
+    "electron": "^1.4.15"
   }
 }
