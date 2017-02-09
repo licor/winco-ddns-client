@@ -2,7 +2,23 @@
   "name": "winco-ddns-client",
   "version": "4.1.0",
   "main": "main.js",
+  "author": "Inácio Corrêa <inacio.correa@winco.com.br>",
   "dependencies": {
     "dateformat": "^2.0.0"
+  },
+  "devDependencies": {
+    "electron": "^1.4.15",
+    "electron-builder": "^13.0.0"
+  },
+  "build": {
+	"appId": "br.com.winco.ddns",
+	"win": {
+		"iconUrl": "https://ddns.winco.com.br/tpl/img/favicons/favicon-32x32.png"
+	}
+  },
+  "scripts": {
+	"dev": "electron . --enable-logging",
+    "pack": "build --dir",
+	"dist": "build"
   }
 }
