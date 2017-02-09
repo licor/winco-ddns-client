@@ -31,8 +31,8 @@
 <header>
 	<a href="../." class="logo left"></a>
 </header>
-<section class="edit" style="margin-top: 30px">
-	<h1>Adicionar subdomínio</h1>
+<section class="edit">
+	<h2 class="account-h2">Adicionar subdomínio</h1>
 	<br>
 	<form>
 		<table class="table_mvcform" style="width: auto;">
@@ -66,7 +66,7 @@
 
 		if (window.location.search.indexOf('domain')) {
 			var qs = querystring.parse(window.location.search.substring(1));
-			if (qs) {
+			if (qs && qs.domain) {
 				domain = JSON.parse(localStorage.getItem(qs.domain));
 				$('#dom_name').val(qs.domain);
 				$('#dom_password').val(domain.password);

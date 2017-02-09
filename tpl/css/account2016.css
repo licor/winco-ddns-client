@@ -30,8 +30,7 @@ th{
 .alert{color: #DD2C00;}
 
 section.login, section.edit{
-	margin: 80px 0 -100px 0;
-	padding: 100px 30px 200px 30px;
+	padding: 100px 30px 50px 30px;
 	background: #fafafa;
 }
 
@@ -69,8 +68,8 @@ section.login  .table_mvcform{margin: 0 auto;}
 /*.table_mvcform tr:first-child td{text-align: center !important;}*/
 
 section.account{
-	margin: 80px 0 -100px 0;
-	padding: 20px 30px 100px 30px;
+	/*margin: 80px 0 -100px 0;*/
+	padding: 100px 30px 100px 30px;
 	background: #fafafa;
 }
 
@@ -88,8 +87,7 @@ section.account{
 .account-h2{
 	color: #369;
 	text-align: center;
-	font-size: 1.2rem;
-	padding: 80px 0 0 0;
+	font-size: 1.5rem;
 	font-weight: bold;
 	clear: both;
 }
@@ -101,12 +99,6 @@ section.account{
 
 table.subdominios td:last-child {width: 80px;}
 
-table.subdominios td:nth-child(2),
-table.subdominios td:nth-child(2),
-table.subdominios td:nth-child(2){
-	text-align: left !important; 
-	min-width: 140px; 
-} 
 
 td h1{
 	background-color: #1784cd;

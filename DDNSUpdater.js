@@ -8,6 +8,8 @@ function DDNSUpdater() {
 	self = this
 	
 	EventEmitter.call(this)
+
+	this.scheduler_interval = 300000;
 }
 
 inherits(DDNSUpdater, EventEmitter);
@@ -17,6 +19,7 @@ DDNSUpdater.prototype.update = function(_domain) {
 	var domain = _domain
 	var data = localStorage.getItem(domain)
 	if (data) {
+		self.emit('start_update', domain)
 		var structure = JSON.parse(data);
 		
 		url = 'http://' + domain + ':' + structure.password + '@members.ddns.com.br/nic/update?hostname=' + domain;
@@ -34,8 +37,8 @@ DDNSUpdater.prototype.update = function(_domain) {
 					structure.last_ip = response[1]
 					structure.last_update = new Date();
 					console.log('Dominio ' + domain + ' atualizado. IP:' + structure.last_ip);
-					self.emit('subdomain_updated', domain);
 				}
+				self.emit('end_update', domain);
 				
 				localStorage.setItem(domain, JSON.stringify(structure));
 			});
@@ -59,8 +62,9 @@ DDNSUpdater.prototype.updateDomains = function() {
 DDNSUpdater.prototype.startScheduler = function() {
 	
 	setImmediate(self.updateDomains);
-	
-	setInterval(self.updateDomains, 300000);
+	setInterval(self.updateDomains, self.scheduler_interval);
+
 }
+
 
 module.exports = DDNSUpdater;

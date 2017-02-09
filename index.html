@@ -32,7 +32,7 @@
 	<a href="../." class="logo left"></a>
 </header>
 <section class="account">
-	<h1>Gerenciar domínios</h1>
+	<h2 class="account-h2">Gerenciar domínios</h1>
 	<br>
 	<div style="overflow: auto;">
 		<table class="subdominios">
@@ -47,19 +47,69 @@
 		</table>
 	</div>
 	<div class="table-footer">
-		<a href="new_domain.html" class="btn btn-purple">Adicionar</a>
+		<a href="new_domain.html" class="btn btn-laranja">Adicionar</a>
 	</div>
 </section>
 <script>
-    // You can also require other files to run in this process
-    require('./app.js')
+	$('table[class=subdominios] > tbody > tr').not(':first').not(':last').remove();
+	var html = ''
+	var errorMessage = '';
+	var dateFormat = require('dateformat');
+	for (var key in localStorage) {
+		domain = JSON.parse(localStorage[key]);
+		if (domain.last_status == 'badauth')
+			errorMessage = 'Usuário ou senha incorretos';
+		if (typeof(domain.last_update) == 'string') {
+			data = dateFormat(domain.last_update, 'dd/mm/yy HH:MM:ss')
+		} else {
+			data = errorMessage;
+		}
+		if (domain.last_ip == null)
+			last_ip = '';
+		else
+			last_ip = domain.last_ip;
+		html += '<tr data-domain="' + key +'"><td><a href="new_domain.html?domain=' + key + '">' + key +'</a></td><td>' + last_ip + '</td><td>' + data + '</td><td><span class="btn-trash" data-domain="' + key + '">Excluir</span></td>';
+	}
+	$('table[class=subdominios] > tbody > tr').first().after(html);	
+
+	$('span[class="btn-trash"]').each(function(index) {
+		$(this).css({'cursor':'pointer'});
+		var domain = $(this).data('domain');
+		msg = "Tem certeza que deseja remover o domínio " + domain + " ?"
+		$(this).on('click', () => {
+			if (window.confirm(msg)) {
+				localStorage.removeItem( $(this).data('domain') );
+				$('tr[data-domain="'+ $(this).data('domain') + '"]').remove();
+			}
+		});
+	});
+
 	
 	var updater = new (require('./DDNSUpdater.js'));
 	updater.startScheduler();
 	
-	updater.on('subdomain_updated', (domain) => {
+	updater.on('end_update', (domain) => {
+		data = JSON.parse(localStorage.getItem(domain));
+		if (data) {
+			if (data.last_status == 'good') {
+				status_str = dateFormat(data.last_update, 'dd/mm/yy HH:MM:ss')
+			} else if (data.last_status == 'badauth') {
+				status_str = 'Subdomínio ou senha incorretos';
+			} else {
+				status_str = data.last_status;
+			}
+		} else {
+			data = '';
+		}
+		$('tr[data-domain="'+ domain +'"] > td:eq(2)').html(status_str);
+		$('tr[data-domain="'+ domain +'"] > td:eq(1)').html(data.last_ip);
 		console.log(domain)
 	});
+	updater.on('start_update', (domain) => {
+		$('tr[data-domain="'+ domain +'"] > td:eq(2)').html('Atualizando...');
+	});
+
+
  </script>
 </body>
 </html>

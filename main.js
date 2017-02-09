@@ -11,7 +11,7 @@ let appIcon = null;
 
 function createWindow () {
   // Create the browser window.
-	win = new BrowserWindow({width: 767, height: 472, show: false/*, resizable: false*/})
+	win = new BrowserWindow({width: 850, height: 472, /*, resizable: false*/})
 	appIcon = new Tray(iconPath);
 	var contextMenu = Menu.buildFromTemplate([
 	{
@@ -47,7 +47,7 @@ function createWindow () {
   win.setMenu(null);
 
   // Open the DevTools.
-  win.webContents.openDevTools()
+  // win.webContents.openDevTools()
 
   // Emitted when the window is closed.
   win.on('closed', () => {
@@ -55,6 +55,11 @@ function createWindow () {
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     win = null
+  })
+
+  win.on('minimize', (event) => {
+    event.preventDefault(),
+    win.hide();
   })
 }
 
