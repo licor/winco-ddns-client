@@ -42,6 +42,9 @@ DDNSUpdater.prototype.update = function(_domain) {
 				
 				localStorage.setItem(domain, JSON.stringify(structure));
 			});
+		}).on('error', (e) => {
+			self.emit('end_update', domain);
+  			console.log(`Got error: ${e.message}`);
 		});
 		
 	}
