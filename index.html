@@ -93,8 +93,10 @@
 		if (data) {
 			if (data.last_status == 'good') {
 				status_str = dateFormat(data.last_update, 'dd/mm/yy HH:MM:ss')
-			} else if (data.last_status == 'badauth') {
+			} else if (data.last_status == 'badauth' || data.last_status == 'nohost') {
 				status_str = 'Subdomínio ou senha incorretos';
+			} else if (typeof(data.last_status) == 'undefined') {
+				status_str = 'Erro desconhecido. Nova tentativa em 5 minutos.'
 			} else {
 				status_str = data.last_status;
 			}
